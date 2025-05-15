@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="16.AsynchronousProgramming.css">
+    <title>16.AsynchronousProgramming</title>
+</head>
+<body>
+<h1>Asynchronous Programming in JS</h1>
+<h2>Fetch API, Promises, async/await</h2>
+<ol>
+    <li>Structured using callback functions</li>
+    <li>In current versions of JS there are:</li>
+    <li>Callbacks</li>
+    <li>Promises</li>
+    <li>Async Functions</li>
+    <li>Not the same thing as concurrent or multi-threaded</li>
+    <li>JS code is generally single-threaded</li>
+</ol>
+<h2>Runs several tasks (pieces of code) in parallel, at the same time</h2>
+<p>Event Queue - FIFO - after 2 seconds return callback
+    when the stack (Debug Console)
+    is ready to execute the next task -&gt; EVENT QUEUE
+    first synchronous -
+    stack and then asynchronous Queue - and then synchronous by execute
+</p>
+<ul>
+    <li>Callbacks - Function passed into another function as an argument</li>
+    <li>Then invoked inside the outer function to complete
+        some kind of routine or action</li>
+</ul>
+<h2>Promises</h2>
+<h2>Objects Holding Asynchronous Operations</h2>
+<p>A promise is an asynchronous action that may
+    complete at some point and produce a value</p>
+<ul>
+    <li>States:</li>
+    <li>Pending -&gt; operation still running (unfinished)</li>
+    <li>Fulfilled -&gt; operation finished (the result is available)</li>
+    <li>Failed -&gt; operation failed (an error is present)</li>
+    <li>Promises use the Promise class -&gt; new Promise(executor);</li>
+</ul>
+<p>constructor takes Executor function as parameter</p>
+<p>Executor resolve,reject</p>
+<p>then -&gt; Success callback -&gt; resolve -&gt; return data -&gt; Promise resolves with data or throws error</p>
+<p>catch -&gt; Error callback -&gt; reject -&gt; throw error</p>
+<ol>
+    <li>Popular Promise Methods</li>
+    <li>Promise.reject(reason)</li>
+    <li>Returns an object that is rejected with the given reason</li>
+    <li>Promise.resolve(value)</li>
+    <li>Returns an object that is resolved with the given value</li>
+    <li>Promise.finally()</li>
+    <li>The handler is called when the promise is settled</li>
+    <li>Promise.all(iterable)</li>
+    <li>Returns a promise</li>
+    <li>Fulfills when all of the promises have fulfilled</li>
+    <li>Rejects as soon as one of them rejects</li>
+</ol>
+<h2>AJAX</h2>
+<h2>Connecting to a Server via Fetch API</h2>
+<p>Asynchronous JavaScript And XML</p>
+<ul>
+    <li>Background loading of dynamic content/data</li>
+    <li>Load data from the Web server and render it</li>
+    <li>Some examples of AJAX usage:</li>
+    <li>Partial page rendering</li>
+    <li>Load HTML fragment + show it in a &lt;div&gt;</li>
+    <li>JSON service</li>
+    <li>Loads JSON object and displays it</li>
+</ul>
+<ul>
+    <li>Fetch</li>
+    <li>Allows making network requests</li>
+    <li>Uses Promises</li>
+    <li>Enables a simpler and cleaner API</li>
+    <li>Makes code more readable and maintainable</li>
+</ul>
+<ul>
+    <li>The response of a fetch() request is a Stream object</li>
+    <li>The reading of the stream happens asynchronously</li>
+    <li>When the json() method is called, a Promise is returned</li>
+    <li>The response status is checked (should be 200) before
+        parsing the response as JSON</li>
+</ul>
+<ul>
+    <li>GET Request -&gt; Fetch API uses the GET method so that a direct call
+        would be like this</li>
+</ul>
+<ul>
+    <li>POST Request -&gt; To make a POST request, we can set the method and
+        body parameters in the fetch() options</li>
+</ul>
+<ul>
+    <li>PUT Request </li>
+    <li>PATCH Request </li>
+    <li>DELETE Request</li>
+</ul>
+<h2>Async Functions</h2>
+<ul>
+    <li>Returns a promise, that can await other promises
+        in a way that looks synchronous</li>
+    <li>Contains an await expression that:</li>
+    <li>Is only valid inside async functions</li>
+    <li>Pauses the execution of that function</li>
+    <li>Waits for the Promise's resolution</li>
+</ul>
+</body>
+</html>
