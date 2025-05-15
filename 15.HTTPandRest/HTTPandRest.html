@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="HTTPandRest.css">
+    <title>HTTP and REST</title>
+</head>
+<body>
+<h1>HTTP and REST</h1>
+<p>Hypertext Transfer Protocol (HTTP) for transferring Web resources (HTML files, images, styles, etc.)</p>
+<ul>
+    <li>Request-response based</li>
+    <li>Web Client</li>
+    <li>Web Server</li>
+    <li>Development Web Servers Live Server</li>
+    <li>HTTP request</li>
+    <li>HTTP response</li>
+</ul>
+
+<p>HTTP defines methods to indicate the desired action to be performed on the identified resource</p>
+<ol>
+    <li>GET -> retrieve/load a resource</li>
+    <li>POST -> create, store a resource</li>
+    <li>PUT -> update a resource</li>
+    <li>DELETE -> delete(remove) a resource</li>
+    <li>PATCH -> update resource partially</li>
+    <li>HEAD -> retrieve the resource's headers</li>
+    <li>OPTIONS -> returns the HTTP methods that the server supports for the specified URL</li>
+</ol>
+
+<p>GET REQUEST -> only GET + Host are obligatory</p>
+<ul>
+    <li>GET /users/testnakov/repos HTTP/1.1 -> HTTP Request Line</li>
+    <li>Host: api.github.com -> HTTP Headers</li>
+    <li>CMD -> nls softuni.bg -> IP Address 192.168.1.1 -> HTTP Headers</li>
+    <li>Accept: */* -> HTTP Headers</li>
+    <li>Accept-Language: en -> HTTP Headers</li>
+    <li>Accept-Encoding: gzip, deflate -> HTTP Headers</li>
+    <li>User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36 -> HTTP Headers</li>
+    <li>Connection: Keep-Alive -> HTTP Headers</li>
+    <li>Cache-Control: no-cache -> HTTP Headers</li>
+</ul>
+
+<p>POST Request Example:</p>
+<ul>
+    <li>POST /repos/testnakov/test-nakov-repo/issues HTTP/1.1 -> HTTP request line</li>
+    <li>HTTP headers:</li>
+    <li>Host: api.github.com</li>
+    <li>Accept: */*</li>
+    <li>Accept-Language: en</li>
+    <li>Accept-Encoding: gzip, deflate</li>
+    <li>User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)</li>
+    <li>Connection: Keep-Alive</li>
+    <li>Cache-Control: no-cache</li>
+    <li>The request body holds the submitted data</li>
+    <li>CRLF -> start body -> info that we send:</li>
+    <li>{"title":"Found a bug",</li>
+    <li>"body":"I'm having a problem with this.",</li>
+    <li>"labels":["bug","minor"]}</li>
+    <li>CRLF</li>
+</ul>
+
+<p>HTTP Response – Example</p>
+<ul>
+    <li>HTTP/1.1 200 OK - HTTP response status line</li>
+    <li>Date: Fri, 11 Nov 2016 16:09:18 GMT+2</li>
+    <li>Server: Apache/2.2.14 (Linux)</li>
+    <li>Accept-Ranges: bytes</li>
+    <li>Content-Length: 84</li>
+    <li>Content-Type: text/html</li>
+    <li>&lt;CRLF&gt;</li>
+    <li>&lt;html&gt;</li>
+    <li>&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;</li>
+    <li>&lt;body&gt;Test HTML page.&lt;/body&gt;</li>
+    <li>&lt;/html&gt;</li>
+</ul>
+
+<h3>HTTP Status Codes</h3>
+<ul>
+    <li>200 -> OK -> Successfully retrieved resource</li>
+    <li>201 -> Created -> A new resource was created</li>
+    <li>204 -> No Content -> Request has nothing to return</li>
+    <li>301 / 302 -> Moved -> Moved to another location (redirect)</li>
+    <li>400 -> Bad Request -> Invalid request / syntax error</li>
+    <li>401 / 403 -> Unauthorized -> Authentication failed / Access denied</li>
+    <li>404 -> Not Found -> Invalid resource</li>
+    <li>409 -> Conflict -> Conflict was detected, e.g. duplicated email</li>
+    <li>500 / 503 -> Server Error -> Internal server error / Service unavailable</li>
+</ul>
+
+<h3>Status Code Categories</h3>
+<ul>
+    <li>200s are successful</li>
+    <li>300s - Moved -> (redirect) -> new direction</li>
+    <li>400s -> mistake in request that you send</li>
+    <li>500s -> something is broken in the server</li>
+</ul>
+
+<p>Browser Developer Tool -> F12 -> developer tools -> Network -> debug HTTP</p>
+<p>Add site name -> and you see all requests. One row is one request and one response</p>
+<p>Text on row -> HTTP Protocol</p>
+<p>Preview -> only HTML</p>
+
+<h3>Content-Type and Content-Disposition</h3>
+<p>The Content-Type / Content-Disposition headers specify how the HTTP request / response body should be processed</p>
+<ul>
+    <li>JSON-encoded data Content-Type: application/json</li>
+    <li>UTF-8 encoded HTML page. Content-Type: text/html; charset=utf-8 Will be shown in the browser</li>
+    <li>This will download a PDF file named Financial-Report-April-2016.pdf</li>
+    <li>Content-Type: application/pdf</li>
+    <li>Content-Disposition: attachment; filename=Financial-Report-April-2016.pdf</li>
+</ul>
+
+<p>Response -> body in HTML</p>
+<p>Postman - test server Frontend + Backend</p>
+<p>Postman does only the request that I pick</p>
+
+<h2>REST</h2>
+<h3>REST and RESTful Services</h3>
+<p>REST - Representational State Transfer</p>
+<ul>
+    <li>Architecture for client-server communication over HTTP</li>
+    <li>Resources have URI (address)</li>
+    <li>Can be created/retrieved/modified/deleted/etc.</li>
+    <li>RESTful API/RESTful Service</li>
+    <li>Provides access to server-side resources via HTTP and REST</li>
+</ul>
+
+<h3>REST and RESTful Services – Example</h3>
+<ol>
+    <li>Create a new post</li>
+    <li>POST -> http://some-service.org/api/posts</li>
+    <li>Get all posts / specific post</li>
+    <li>GET -> http://some-service.org/api/posts</li>
+    <li>GET -> http://some-service.org/api/posts/17</li>
+    <li>Delete existing post</li>
+    <li>DELETE http://some-service.org/api/posts/17</li>
+    <li>Replace / modify existing post</li>
+    <li>PUT/PATCH http://some-service.org/api/posts/17</li>
+</ol>
+
+</body>
+</html>
